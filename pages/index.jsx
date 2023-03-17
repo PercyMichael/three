@@ -2,8 +2,6 @@ import { SoftShadows } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
-SoftShadows();
-
 const Box = ({ position, color, args }) => {
   const mesh = useRef(null);
   useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.02));
