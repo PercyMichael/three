@@ -1,4 +1,4 @@
-import { SoftShadows } from "@react-three/drei";
+import { OrbitControls, SoftShadows } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -41,6 +41,7 @@ const Home = () => {
             <meshStandardMaterial color={"pink"} />
           </mesh>
         </group>
+        <OrbitControls />
       </Canvas>
     </div>
   );
