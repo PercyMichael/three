@@ -1,4 +1,4 @@
-import { Environment, OrbitControls, SoftShadows } from "@react-three/drei";
+import { OrbitControls, useVideoTexture } from "@react-three/drei";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -22,6 +22,16 @@ const Box = ({ position, color, args }) => {
   );
 };
 
+const Tv = () => {
+  const texture = useVideoTexture("/test.mp4", { muted: 1 });
+  return (
+    <mesh position={[-4, 0, 0]}>
+      <planeGeometry args={[2, 1]} />
+      <meshBasicMaterial map={texture} />
+    </mesh>
+  );
+};
+
 const Home = () => {
   return (
     <div className="bg-gray-100 h-screen">
@@ -39,6 +49,8 @@ const Home = () => {
         <Box position={[2, 0, 0]} color={"purple"} args={[1, 2, 1]} />
         <Box position={[-2, 0, 0]} color={"yellow"} />
         <OfficeChair position={[4, 0, 0]} />
+        <Box position={[6, 0, 0]} />
+        <Tv />
 
         <group>
           <mesh
