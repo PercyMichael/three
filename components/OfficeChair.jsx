@@ -12,10 +12,10 @@ import { useGLTF } from "@react-three/drei";
 
 export function OfficeChair(props) {
   const { nodes, materials } = useGLTF(
-    "../public/models/chair/office_chair-transformed.glb"
+    "/models/chair/office_chair-transformed.glb"
   );
   return (
-    <group {...props} dispose={null}>
+    <group castShadow {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.53}>
         <mesh
           geometry={nodes.defaultMaterial.geometry}
@@ -27,4 +27,4 @@ export function OfficeChair(props) {
   );
 }
 
-useGLTF.preload("../public/models/chair/office_chair-transformed.glb");
+useGLTF.preload("/models/chair/office_chair-transformed.glb");
