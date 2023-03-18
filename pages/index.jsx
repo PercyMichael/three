@@ -1,4 +1,4 @@
-import { OrbitControls, useVideoTexture } from "@react-three/drei";
+import { Environment, OrbitControls, useVideoTexture } from "@react-three/drei";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -40,6 +40,7 @@ const Home = () => {
         colorManagement
         camera={{ position: [-1, 3, 7], fov: 60 }}
       >
+        <Environment blur={0.3} preset="park" />
         <ambientLight intensity={1} />
         <directionalLight intensity={1} castShadow position={[0, 10, 0]} />
         <pointLight intensity={1.5} position={[0, 0, 10]} />
@@ -58,12 +59,14 @@ const Home = () => {
             rotation={[-Math.PI / 2, 0, 0]}
             position={[0, -2, 0]}
           >
-            <planeBufferGeometry attach={"geometry"} args={[20, 20]} />
+            <planeBufferGeometry attach={"geometry"} args={[25, 25]} />
             <meshStandardMaterial color={"blue"} />
           </mesh>
         </group>
 
         <OrbitControls
+          maxDistance={20}
+          minDistance={4.5}
           minPolarAngle={Math.PI / 3}
           maxPolarAngle={Math.PI / 3}
         />
