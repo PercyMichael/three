@@ -1,4 +1,4 @@
-import { OrbitControls, SoftShadows } from "@react-three/drei";
+import { Environment, OrbitControls, SoftShadows } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
@@ -9,7 +9,7 @@ const Box = ({ position, color, args }) => {
   return (
     <mesh castShadow position={position} ref={mesh}>
       <boxBufferGeometry attach={"geometry"} args={args} />
-      <meshStandardMaterial color={color} />
+      <meshStandardMaterial color={color} metalness={0.9} roughness={0.2} />
     </mesh>
   );
 };
@@ -20,12 +20,12 @@ const Home = () => {
       <Canvas
         shadows
         colorManagement
-        camera={{ position: [-6, 3, 7], fov: 60 }}
+        camera={{ position: [-1, 3, 7], fov: 60 }}
       >
-        <ambientLight intensity={0.5} />
-        <directionalLight castShadow position={[0, 10, 0]} />
-        <pointLight intensity={1.5} />
-        <pointLight position={[0, 10, 0]} intensity={0.4} />
+        <ambientLight intensity={1} />
+        <directionalLight intensity={1} castShadow position={[0, 10, 0]} />
+        <pointLight intensity={1.5} position={[0, 0, 10]} />
+        <pointLight position={[0, 10, 0]} intensity={1} />
 
         <Box position={[0, 0, 0]} color={"red"} />
         <Box position={[2, 0, 0]} color={"purple"} args={[1, 2, 1]} />
@@ -38,10 +38,14 @@ const Home = () => {
             position={[0, -2, 0]}
           >
             <planeBufferGeometry attach={"geometry"} args={[20, 20]} />
-            <meshStandardMaterial color={"pink"} />
+            <meshStandardMaterial color={"blue"} />
           </mesh>
         </group>
-        <OrbitControls />
+
+        <OrbitControls
+          minPolarAngle={Math.PI / 3}
+          maxPolarAngle={Math.PI / 3}
+        />
       </Canvas>
     </div>
   );
