@@ -48,7 +48,7 @@ const Home = () => {
       <Canvas
         shadows
         colorManagement
-        camera={{ position: [4, 3, 10], fov: 100 }}
+        camera={{ position: [4, 3, 13], fov: 100 }}
       >
         <Environment preset="sunset" blur={{ value: 0.65, min: 0, max: 1 }} />
         <ambientLight intensity={0.3} />
