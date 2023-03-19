@@ -56,7 +56,6 @@ const Home = () => {
         <directionalLight intensity={0.7} castShadow position={[0, 10, 0]} />
 
         <House position={[-3, 0, 2]} />
-
         <BillBoard position={[5, 0, 0]} />
         <Tv />
 
