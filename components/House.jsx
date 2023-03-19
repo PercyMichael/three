@@ -172,12 +172,6 @@ export function House(props) {
             rotation={[1.39, -0.11, 0.23]}
             scale={[0.01, 0.09, 0.09]}
           />
-          <mesh
-            geometry={nodes.Object_51.geometry}
-            material={materials.Blue}
-            position={[5.45, -0.34, -5.72]}
-            scale={[11.83, 8.47, 13.7]}
-          />
         </group>
       </group>
     </group>

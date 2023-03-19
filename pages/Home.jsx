@@ -32,7 +32,7 @@ import { BillBoard } from "../components/BillBoard";
 // };
 
 const Tv = () => {
-  const texture = useVideoTexture("/20th.mp4", { muted: 0 });
+  const texture = useVideoTexture("/20th.mp4", { muted: 1 });
   return (
     <mesh position={[5, 4.27, 0.24]}>
       <planeGeometry args={[4.7, 2]} />
@@ -44,19 +44,15 @@ const Tv = () => {
 const Home = () => {
   const controlsRef = useRef();
   return (
-    <div className="bg-[#fff4f4] h-screen">
-      <Canvas
-        shadows
-        colorManagement
-        camera={{ position: [-1, 3, 7], fov: 60 }}
-      >
+    <div className="bg-[#b8d7ff] h-screen">
+      <Canvas shadows colorManagement camera={{ position: [4, 3, 7], fov: 60 }}>
         <Environment preset="sunset" blur={{ value: 0.65, min: 0, max: 1 }} />
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.3} />
 
-        <directionalLight intensity={1} castShadow position={[0, 10, 0]} />
+        <directionalLight intensity={0.7} castShadow position={[0, 10, 0]} />
 
-        <House />
-        <Lowhouse />
+        <House position={[-3, 0, 2]} />
+
         <BillBoard position={[5, 0, 0]} />
         <Tv />
 
