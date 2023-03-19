@@ -1,8 +1,10 @@
 import { Environment, OrbitControls, useVideoTexture } from "@react-three/drei";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
+import * as THREE from "three";
 
 import { OfficeChair } from "../components/OfficeChair";
+import { House } from "../components/House";
 import { TextureLoader } from "three";
 
 const Box = ({ position, color, args }) => {
@@ -33,14 +35,15 @@ const Tv = () => {
 };
 
 const Home = () => {
+  const controlsRef = useRef();
   return (
-    <div className="bg-gray-100 h-screen">
+    <div className="bg-[#fff4f4] h-screen">
       <Canvas
         shadows
         colorManagement
         camera={{ position: [-1, 3, 7], fov: 60 }}
       >
-        <Environment blur={0.3} preset="park" />
+        <Environment preset="sunset" blur={{ value: 0.65, min: 0, max: 1 }} />
         <ambientLight intensity={1} />
         <directionalLight intensity={1} castShadow position={[0, 10, 0]} />
         <pointLight intensity={1.5} position={[0, 0, 10]} />
@@ -50,6 +53,7 @@ const Home = () => {
         <Box position={[2, 0, 0]} color={"purple"} args={[1, 2, 1]} />
         <Box position={[-2, 0, 0]} color={"yellow"} />
         <OfficeChair position={[4, 0, 0]} />
+        <House />
         <Box position={[6, 0, 0]} />
         <Tv />
 
@@ -65,6 +69,13 @@ const Home = () => {
         </group>
 
         <OrbitControls
+          ref={controlsRef}
+          screenSpacePanning={false}
+          mouseButtons={{
+            LEFT: THREE.MOUSE.PAN,
+            MIDDLE: THREE.MOUSE.DOLLY,
+            RIGHT: THREE.MOUSE.ROTATE,
+          }}
           maxDistance={20}
           minDistance={4.5}
           minPolarAngle={Math.PI / 3}
