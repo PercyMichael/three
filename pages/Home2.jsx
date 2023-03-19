@@ -25,7 +25,7 @@ const Box = ({ position, color, args }) => {
 };
 
 const Tv = () => {
-  const texture = useVideoTexture("/test.mp4", { muted: 1 });
+  const texture = useVideoTexture("/test.mp4", { muted: 0 });
   return (
     <mesh position={[-4, 0, 0]}>
       <planeGeometry args={[2, 1]} />

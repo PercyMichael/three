@@ -31,7 +31,7 @@ import { BillBoard } from "../components/BillBoard";
 //   );
 // };
 const Tv2 = () => {
-  const texture = useVideoTexture("/test.mp4", { muted: 0 });
+  const texture = useVideoTexture("/test.mp4", { muted: 1 });
   return (
     <mesh position={[8, 0, 0]}>
       <planeGeometry args={[2, 1]} />
