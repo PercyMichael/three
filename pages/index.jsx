@@ -45,7 +45,11 @@ const Home = () => {
   const controlsRef = useRef();
   return (
     <div className="bg-[#b8d7ff] h-screen">
-      <Canvas shadows colorManagement camera={{ position: [4, 3, 7], fov: 60 }}>
+      <Canvas
+        shadows
+        colorManagement
+        camera={{ position: [4, 3, 10], fov: 100 }}
+      >
         <Environment preset="sunset" blur={{ value: 0.65, min: 0, max: 1 }} />
         <ambientLight intensity={0.3} />
 
