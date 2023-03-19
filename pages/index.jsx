@@ -36,7 +36,7 @@ const Tv = () => {
   return (
     <mesh position={[5, 4.27, 0.24]}>
       <planeGeometry args={[4.7, 2]} />
-      <meshBasicMaterial map={texture} />
+      <meshStandardMaterial map={texture} />
     </mesh>
   );
 };

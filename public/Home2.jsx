@@ -24,15 +24,15 @@ const Box = ({ position, color, args }) => {
   );
 };
 
-const Tv = () => {
-  const texture = useVideoTexture("/test.mp4", { muted: 0 });
-  return (
-    <mesh position={[-4, 0, 0]}>
-      <planeGeometry args={[2, 1]} />
-      <meshBasicMaterial map={texture} />
-    </mesh>
-  );
-};
+// const Tv = () => {
+//   const texture = useVideoTexture("/test.mp4", { muted: 1 });
+//   return (
+//     <mesh position={[-4, 0, 0]}>
+//       <planeGeometry args={[2, 1]} />
+//       <meshBasicMaterial map={texture} />
+//     </mesh>
+//   );
+// };
 
 const Home = () => {
   const controlsRef = useRef();
@@ -55,7 +55,7 @@ const Home = () => {
         <OfficeChair position={[4, 0, 0]} />
         <House />
         <Box position={[6, 0, 0]} />
-        <Tv />
+        {/* <Tv /> */}
 
         <group>
           <mesh
