@@ -30,9 +30,17 @@ import { BillBoard } from "../components/BillBoard";
 //     </mesh>
 //   );
 // };
-
+const Tv2 = () => {
+  const texture = useVideoTexture("/test.mp4", { muted: 0 });
+  return (
+    <mesh position={[8, 0, 0]}>
+      <planeGeometry args={[2, 1]} />
+      <meshBasicMaterial map={texture} />
+    </mesh>
+  );
+};
 const Tv = () => {
-  const texture = useVideoTexture("/20th.mp4", { muted: 0 });
+  const texture = useVideoTexture("/20th.mp4", { muted: 1 });
   return (
     <mesh position={[5, 4.27, 0.24]}>
       <planeGeometry args={[4.7, 2]} />
@@ -58,6 +66,7 @@ const Home = () => {
         <House position={[-3, 0, 2]} />
         <BillBoard position={[5, 0, 0]} />
         <Tv />
+        <Tv2 />
 
         <OrbitControls
           ref={controlsRef}
