@@ -13,7 +13,7 @@ function Circle() {
 }
 
 function Tv() {
-  const video = useVideoTexture("/20th.mp4", { muted: 0 });
+  const video = useVideoTexture("/20th.mp4", { muted: 1 });
   return (
     <mesh position={[3, 1.86, 0.1]}>
       <planeGeometry args={[2.05, 0.877]} />
