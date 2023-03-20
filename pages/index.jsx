@@ -1,6 +1,7 @@
 import { OrbitControls, Stage, useVideoTexture } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useLoader } from "@react-three/fiber";
 import { BillBoard } from "../components/BillBoard";
+import { TextureLoader } from "three";
 
 function Circle() {
   return (
@@ -13,12 +14,23 @@ function Circle() {
 }
 
 function Tv() {
-  const video = useVideoTexture("/20th.mp4", { muted: 0 });
+  const video = useVideoTexture("/20th.mp4", { muted: 1 });
   return (
     <mesh position={[3, 1.86, 0.1]}>
       <planeGeometry args={[2.05, 0.877]} />
 
       <meshStandardMaterial map={video} />
+    </mesh>
+  );
+}
+
+function Cube() {
+  const colorMap = useLoader(TextureLoader, "wood.jpeg");
+  return (
+    <mesh position={[6, 0.2, 0.1]}>
+      <boxGeometry args={[0.5, 0.5]} />
+
+      <meshStandardMaterial map={colorMap} />
     </mesh>
   );
 }
@@ -37,6 +49,7 @@ const index = () => {
         <Stage>
           <Circle />
           <BillBoard position={[3, 0, 0]} scale={0.01} />
+          <Cube />
           <Tv />
         </Stage>
       </Canvas>
