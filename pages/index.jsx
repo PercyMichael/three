@@ -13,7 +13,7 @@ function Circle() {
 }
 
 function Tv() {
-  const video = useVideoTexture("20th.mp4", { muted: 0 });
+  const video = useVideoTexture("/20th.mp4", { muted: 1 });
   return (
     <mesh position={[3, 1.86, 0.1]}>
       <planeGeometry args={[2.05, 0.877]} />
@@ -29,7 +29,7 @@ const index = () => {
       <Canvas camera={{ position: [0, 3, 20] }}>
         <OrbitControls
           maxPolarAngle={Math.PI / 1.8}
-          minPolarAngle={Math.PI / 6}
+          minPolarAngle={Math.PI / 6.5}
           minDistance={5}
           maxDistance={10}
         />
